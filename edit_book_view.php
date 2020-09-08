@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unisinos minha biblioteca</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-1">Editar livro <?= $book['name'] ?>:</h1>
+
+        <form method="POST" action="book_edit_action.php">
+            <input type="hidden" name="id" value="<?= $book['id'] ?>">
+            <div class="form-group">
+              <label for="name">Nome do livro</label>
+              <input type="text" name="name" class="form-control" id="name" value="<?= $book['name'] ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="author">Autor</label>
+                <input type="text" name="author" class="form-control" id="author" value="<?= $book['author'] ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="page_number">Número de página</label>
+                <input type="number" name="page_number" class="form-control" id="page_number" value="<?= $book['page_number'] ?>">
+            </div>
+            
+            <div class="form-group">
+                <label for="published_at">Públicado em</label>
+                <input type="date" name="published_at" class="form-control" id="published_at" value="<?= $book['published_at'] ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="published_by">Públicado por</label>
+                <input type="text" name="published_by" class="form-control" id="published_by" value="<?= $book['published_by'] ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="edited_by">Editado por</label>
+                <input type="text" name="edited_by" class="form-control" id="edited_by" value="<?= $book['edited_by'] ?>">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar edição</button>
+            <a class="btn btn-secondary" href="/">Voltar</a>
+        </form>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

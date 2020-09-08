@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1 class="mt-1">Livros:</h1>
-        <a href="book-form.html" class="btn btn-primary float-right mb-3">Adicionar livro</a>
+        <a href="book_new_view.html" class="btn btn-primary float-right mb-3">Adicionar livro</a>
 
         <table class="table">
             <thead>
@@ -23,36 +23,23 @@
                 <th scope="col">Públicado em</th>
                 <th scope="col">Públicado por</th>
                 <th scope="col">Editado por</th>
+                <th scope="col"></th>
             </tr>
             </thead>
+            
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Harry Potter</td>
-                <td>J. K. Rowling</td>
-                <td>9999</td>
-                <td>1997</td>
-                <td>Bloomsbury</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Harry Potter</td>
-                <td>J. K. Rowling</td>
-                <td>9999</td>
-                <td>1997</td>
-                <td>Bloomsbury</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Harry Potter</td>
-                <td>J. K. Rowling</td>
-                <td>9999</td>
-                <td>1997</td>
-                <td>Bloomsbury</td>
-                <td>N/A</td>
-            </tr>
+                <?php foreach ($books as $book): ?>
+                    <tr>
+                        <th scope="row"><?= $book['id'] ?></th>
+                        <td><?= $book['name'] ?></td>
+                        <td><?= $book['author'] ?></td>
+                        <td><?= $book['page_number'] ?></td>
+                        <td><?= $book['published_at'] ?></td>
+                        <td><?= $book['published_by'] ?></td>
+                        <td><?= $book['edited_by'] ?></td>
+                        <td><a href="edit_book.php?book_id=<?= $book['id'] ?>">Editar</a></td>
+                    </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
     </div>
