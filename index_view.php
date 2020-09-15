@@ -11,7 +11,17 @@
 <body>
     <div class="container">
         <h1 class="mt-1">Livros:</h1>
-        <a href="book_new_view.html" class="btn btn-primary float-right mb-3">Adicionar livro</a>
+        <form action="/" class="float-left">
+            <input type="text" name="search" value="<?= $_GET['search'] ?? '' ?>" class="form-control" style="display:inline; width:auto; vertical-align:top">
+            <button class="btn btn-primary">Procurar</button>
+        </form>
+
+        <?php if ($user != null): ?>
+            <a href="book_new_view.html" class="btn btn-primary float-right mb-3">Adicionar livro</a>
+            <a href="admin_list.php" class="btn btn-secondary float-right mb-3">Ver admin</a>
+        <?php else: ?>
+            <a href="/login.php" class="btn btn-primary float-right mb-3">Logar</a>
+        <?php endif;?>
 
         <table class="table">
             <thead>
@@ -37,7 +47,7 @@
                         <td><?= $book['published_at'] ?></td>
                         <td><?= $book['published_by'] ?></td>
                         <td><?= $book['edited_by'] ?></td>
-                        <td><a href="edit_book.php?book_id=<?= $book['id'] ?>">Editar</a></td>
+                        <td><a href="edit_book.php?book_id=<?= $book['id'] ?>">Editar</a> <a href="delete_book.php?book_id=<?= $book['id'] ?>">Deletar</a></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
